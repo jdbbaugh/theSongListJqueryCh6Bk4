@@ -4,6 +4,7 @@ $(document).ready(() => {
 
   // Use jQuery to get a reference to `load-songs`
   const loadSongContainer = $("#load-songs");
+  $(loadSongContainer).text("Click for Song List");
   
 
   // Use jQuery to get a reference to `song-list`
@@ -20,11 +21,17 @@ $(document).ready(() => {
     // console.log(result);
   }})
   .then(songs => {
+    // console.log(songs)
     songs.forEach(element => {
-      console.log(element);
-      
-      
+      console.log(element.title);
+      $(`<section class="song">
+      <h1 class="song__title">${element.title}</h1><hr>
+      <section class="song__description">
+          Performed by ${element.artist} on the album ${element.album}
+      </section>
+      </section>`).appendTo(songListContainer);
     });
+
   })
 });
 
