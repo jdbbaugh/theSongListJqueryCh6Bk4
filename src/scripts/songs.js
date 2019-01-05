@@ -1,8 +1,13 @@
-$(document).ready(function() {
+const songs = {
+songin () {
+$(document).ready(() => {
 
   // Use jQuery to get a reference to `load-songs`
+  const loadSongContainer = $("#load-songs");
+  
 
   // Use jQuery to get a reference to `song-list`
+  const songListContainer = $("#song-list");
 
 
   /*
@@ -10,7 +15,11 @@ $(document).ready(function() {
       the button is clicked, use $.ajax() to load `songs.json`
       from the file system
   */
-
+ loadSongContainer.click(function(){
+  $.ajax({url: "http://localhost:8088/songs", success: (result) => {
+    console.log(result)
+  }});
+});
 
   /*
       Chain a `.then()` method to the ajax call, and when
@@ -26,4 +35,8 @@ $(document).ready(function() {
               </section>
           </section>
   */
-})
+  })
+ }
+};
+
+export default songs
