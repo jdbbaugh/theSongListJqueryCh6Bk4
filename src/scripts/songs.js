@@ -17,8 +17,15 @@ $(document).ready(() => {
   */
  loadSongContainer.click(function(){
   $.ajax({url: "http://localhost:8088/songs", success: (result) => {
-    console.log(result)
-  }});
+    // console.log(result);
+  }})
+  .then(songs => {
+    songs.forEach(element => {
+      console.log(element);
+      
+      
+    });
+  })
 });
 
   /*
